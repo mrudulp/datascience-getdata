@@ -1,12 +1,8 @@
-# doDf <- function(df,x){
-# 	retDf <- NA
-# 	for(n in meanStdIndxVec){ 
-# 		if (is.na(retDf))
-# 			retDf <- select(df,n)
-# 		else
+# This file analyses "Human Activity Recognition Using Smartphones" dataset present at " https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip".
+# This file should be run in a folder called "UCI_HAR_Dataset"
+require(dplyr)
+require(reshape2)
 
-# 	}
-# }
 run_analysis <- function(){
 	#Assuming this program is run inside the UCI_HAR_Dataset with train & test as folders
 
@@ -81,6 +77,4 @@ run_analysis <- function(){
 	#Step 5.2 Recasting to give averages for each subject and activity.
 	sal <- dcast(melt_mean_std_df,subject+activity~variable,mean)
 	sal
-
-
 }
